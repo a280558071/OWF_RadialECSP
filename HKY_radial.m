@@ -13,7 +13,7 @@ close all
 HKY30_conditions;
 
 %% Model formulation and solve the problem
-OWF_ECSP_LDF2;
+OWF_ECSP_LDF4;
 
 %% save the data
 % save([num2str(WTs),'WT_',num2str(Ns),'Sub_LDF_35kV']);

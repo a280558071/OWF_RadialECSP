@@ -77,7 +77,7 @@ end
 % l=norm(Coord_WT(31,:)-Coord_OS(1,:)); %5.0292
 % len_l=[len_l,l];
 % Get some infor about G
-In=myincidence(I,J);  % Ω⁄÷ßπÿ¡™æÿ’Û, node-branch incidence matrix, where 
+In=myincidence(I,J);  % ËäÇÊîØÂÖ≥ËÅîÁü©Èòµ, node-branch incidence matrix, where 
 L=length(I); % the total number of candidate lines
 
 %% Step 3: define the Critical Cable Set, i.e. CCS
@@ -119,30 +119,31 @@ Sbase=1e6;  % unit:VA
 % --------------------------------------------------% 66kV--------------------------------------------------
 Ubase=66e3;  % unit:V
 Ibase=Sbase/Ubase/1.732;  %unit: A
-Zbase=Ubase/Ibase/1.732;  %unit: ¶∏
-LineCap=[2,3,4,5,6]*12; % Submarine cables: 3°¡95/185/300/500/800 
+Zbase=Ubase/Ibase/1.732;  %unit: Œ©
+LineCap=[2,3,4,5,6]*12; % Submarine cables: 3√ó95/185/300/500/800 
 
 C_lines=[185.4,229.2,280.3,355.5,482.7];
 z_b=[0.246+0.135i 0.1328+0.122i 0.0819+0.113i 0.0491+0.105i 0.03+0.094i];
-% z=ConsInf(:,4)*(0.028+0.325i)/Zbase; % line impedance unit:p.u., (0.039+0.101i) is the impedance of 3°¡630 mm2 submarine cables (ohm/km), According to ABB's Cable Catalogue-2016
-z=repmat(ConsInf(:,4),1,length(C_lines)).*repmat(z_b,length(I),1)/Zbase; % line impedance unit:p.u., (0.039+0.101i) is the impedance of 3°¡630 mm2 submarine cables (ohm/km), According to ABB's Cable Catalogue-2016
+% z=ConsInf(:,4)*(0.028+0.325i)/Zbase; % line impedance unit:p.u., (0.039+0.101i) is the impedance of 3√ó630 mm2 submarine cables (ohm/km), According to ABB's Cable Catalogue-2016
+z=ConsInf(:,4)*repmat(z_b,) /Zbase; % line impedance unit:p.u., (0.039+0.101i) is the impedance of 3√ó630 mm2 submarine cables (ohm/km), According to ABB's Cable Catalogue-2016
+
 
 % LineCap=86.07; C_lines=482.7;  
-% Cost of 66kV line (including construction), unit: 1e4 £§/km 
-% Line Capacity: 86.07 MVA for 3°¡800 38/66 XLPE cable
+% Cost of 66kV line (including construction), unit: 1e4 Ôø•/km 
+% Line Capacity: 86.07 MVA for 3√ó800 38/66 XLPE cable
 
 
 % --------------------------------------------------% 35kV--------------------------------------------------
 % Ubase=35e3;  % unit:V
 % Ibase=Sbase/Ubase/1.732;  %unit: A
-% Zbase=Ubase/Ibase/1.732;  %unit: ¶∏
+% Zbase=Ubase/Ibase/1.732;  %unit: Œ©
 % LineCap=[1,2,3,4]*12;
 % C_lines=[146.7,207.9,367.4,3000000];
-% z=ConsInf(:,4)*(0.042+0.348i)/Zbase; % line impedance unit:p.u., (0.039+0.101i) is the impedance of 3°¡630 mm2 submarine cables (ohm/km), According to ABB's Cable Catalogue-2016
-% % LineCap=37.15; % Line Capacity: 37.15 MVA for 3°¡630 26/35 XLPE cable
-% % C_lines=367.4;  % Cost of 35kV line for 3°¡630 26/35 XLPE cable, unit: 1e4 £§/km
-% % LineCap=53.35; % Line Capacity: 53.35 MVA for 2*3°¡240 26/35 XLPE cable
-% % C_lines=415.8;  % Cost of 35kV line for 2*3°¡240 26/35 XLPE cable, unit: 1e4 £§/km
+% z=ConsInf(:,4)*(0.042+0.348i)/Zbase; % line impedance unit:p.u., (0.039+0.101i) is the impedance of 3√ó630 mm2 submarine cables (ohm/km), According to ABB's Cable Catalogue-2016
+% % LineCap=37.15; % Line Capacity: 37.15 MVA for 3√ó630 26/35 XLPE cable
+% % C_lines=367.4;  % Cost of 35kV line for 3√ó630 26/35 XLPE cable, unit: 1e4 Ôø•/km
+% % LineCap=53.35; % Line Capacity: 53.35 MVA for 2*3√ó240 26/35 XLPE cable
+% % C_lines=415.8;  % Cost of 35kV line for 2*3√ó240 26/35 XLPE cable, unit: 1e4 Ôø•/km
 
 
 P_Max=ones(length(ConsInf(:,4)),1)*LineCap*1e6/Sbase;   % unit: p.u.
@@ -152,7 +153,7 @@ y_line=1./z;   % The mutual admittance between node i and node j
 Bij=abs(imag(y_line));  % The mutual susceptantce between node i and node j
 v_min=0.95;
 v_max=1.05;
-n_feeders=8; % #OSS ≥ˆœﬂ ˝
+n_feeders=8; % #OSS Âá∫Á∫øÊï∞
 g_Sub_Max=600;
 M=1e9;
 M2=1e4;
