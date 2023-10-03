@@ -19,13 +19,13 @@ OWF_ECSP_LDF2;
 % save([num2str(WTs),'WT_',num2str(Ns),'Sub_LDF_35kV']);
 % save([num2str(WTs),'WT_',num2str(Ns),'Sub_LDF_66kV']);
 
-save([num2str(WTs),'WT_',num2str(Ns),'Sub_LDF_35kV_3_real_New_24']);
-% save([num2str(WTs),'WT_',num2str(Ns),'Sub_LDF_66kV_5_real_New_8']);
+% save([num2str(WTs),'WT_',num2str(Ns),'Sub_LDF_35kV_3_real_New_24']);
+save([num2str(WTs),'WT_',num2str(Ns),'Sub_LDF_66kV_5_real_New_8']);
 %% Highlight the lines to be bulit and plot all the operation conditions
 % pi_final=plot_ECSP_Colored(2,L,N_WT,N_Subs,I,J,s_x,s_y,s_y_ij,s_Pij,Coord_WT,Coord_OS,[],Inp,Inn,[]);
 pi_final=plot_ECSP_DCPF2(1,L,N_WT,N_Subs,I,J,s_x,s_y,s_Pij,[],Coord_WT,Coord_OS,[],n_cab);
-print(3,'-dpng',[num2str(WTs),'WT_',num2str(Ns),'Sub_LDF_35kV_3_real_New_24']);
-% print(1,'-dpng',[num2str(WTs),'WT_',num2str(Ns),'Sub_LDF_66kV_5_real_New_8']);
+% print(3,'-dpng',[num2str(WTs),'WT_',num2str(Ns),'Sub_LDF_35kV_3_real_New_24']);
+print(1,'-dpng',[num2str(WTs),'WT_',num2str(Ns),'Sub_LDF_66kV_5_real_New_8']);
 
 cab_len=len_l*s_x; 
 %% 3. ÐÞ¸Äopsµ÷ÓÃBD

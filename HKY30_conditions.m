@@ -117,12 +117,12 @@ Pw=ones(WTs,1)*12;
 %% Base Values
 Sbase=1e6;  % unit:VA
 % --------------------------------------------------% 66kV--------------------------------------------------
-% Ubase=66e3;  % unit:V
-% Ibase=Sbase/Ubase/1.732;  %unit: A
-% Zbase=Ubase/Ibase/1.732;  %unit: Ω
-% LineCap=[2,3,4,5,6]*12;
-% C_lines=[185.4,229.2,280.3,355.5,482.7];
-% z=ConsInf(:,4)*(0.028+0.325i)/Zbase; % line impedance unit:p.u., (0.039+0.101i) is the impedance of 3×630 mm2 submarine cables (ohm/km), According to ABB's Cable Catalogue-2016
+Ubase=66e3;  % unit:V
+Ibase=Sbase/Ubase/1.732;  %unit: A
+Zbase=Ubase/Ibase/1.732;  %unit: Ω
+LineCap=[2,3,4,5,6]*12;
+C_lines=[185.4,229.2,280.3,355.5,482.7];
+z=ConsInf(:,4)*(0.028+0.325i)/Zbase; % line impedance unit:p.u., (0.039+0.101i) is the impedance of 3×630 mm2 submarine cables (ohm/km), According to ABB's Cable Catalogue-2016
 
 % LineCap=86.07; C_lines=482.7;  
 % Cost of 66kV line (including construction), unit: 1e4 ￥/km 
@@ -130,12 +130,12 @@ Sbase=1e6;  % unit:VA
 
 
 % --------------------------------------------------% 35kV--------------------------------------------------
-Ubase=35e3;  % unit:V
-Ibase=Sbase/Ubase/1.732;  %unit: A
-Zbase=Ubase/Ibase/1.732;  %unit: Ω
-LineCap=[1,2,3,4]*12;
-C_lines=[146.7,207.9,367.4,3000000];
-z=ConsInf(:,4)*(0.042+0.348i)/Zbase; % line impedance unit:p.u., (0.039+0.101i) is the impedance of 3×630 mm2 submarine cables (ohm/km), According to ABB's Cable Catalogue-2016
+% Ubase=35e3;  % unit:V
+% Ibase=Sbase/Ubase/1.732;  %unit: A
+% Zbase=Ubase/Ibase/1.732;  %unit: Ω
+% LineCap=[1,2,3,4]*12;
+% C_lines=[146.7,207.9,367.4,3000000];
+% z=ConsInf(:,4)*(0.042+0.348i)/Zbase; % line impedance unit:p.u., (0.039+0.101i) is the impedance of 3×630 mm2 submarine cables (ohm/km), According to ABB's Cable Catalogue-2016
 % % LineCap=37.15; % Line Capacity: 37.15 MVA for 3×630 26/35 XLPE cable
 % % C_lines=367.4;  % Cost of 35kV line for 3×630 26/35 XLPE cable, unit: 1e4 ￥/km
 % % LineCap=53.35; % Line Capacity: 53.35 MVA for 2*3×240 26/35 XLPE cable
@@ -149,7 +149,7 @@ y_line=1./z;   % The mutual admittance between node i and node j
 Bij=abs(imag(y_line));  % The mutual susceptantce between node i and node j
 v_min=0.95;
 v_max=1.05;
-n_feeders=24; % #OSS 出线数
+n_feeders=8; % #OSS 出线数
 g_Sub_Max=600;
 M=1e9;
 M2=1e4;

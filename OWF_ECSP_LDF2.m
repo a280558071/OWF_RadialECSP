@@ -133,8 +133,9 @@ size(Cons);
 % load 42WT_1Sub_LDF_35kV_4_real.mat
 % x0=s_x;
 % assign(x,s_x)
-ops=sdpsettings('solver','cplex','verbose',2,'usex0',0,'Cplex.Benders.Strategy',0,'cplex.timelimit',30000); %,'gurobi.MIPGap',5e-2,,'Gurobi.MIPFocus',3,'gurobi.MIPGap',1e-3,'gurobi.TimeLimit',30000,
-% ops=sdpsettings('solver','gurobi','usex0',1, 'gurobi.MIPGap',1e-4,'verbose',2,'gurobi.LogFile',['Case_',num2str(WTs),'_LDF.log'],'Gurobi.TimeLimit',15000);%,'gurobi.Cuts',0,'usex0',1,
+% ops=sdpsettings('solver','COPT');
+% ops=sdpsettings('solver','cplex','verbose',2,'usex0',0,'Cplex.Benders.Strategy',0,'cplex.timelimit',30000); %,'gurobi.MIPGap',5e-2,,'Gurobi.MIPFocus',3,'gurobi.MIPGap',1e-3,'gurobi.TimeLimit',30000,
+ops=sdpsettings('solver','gurobi','usex0',0, 'gurobi.MIPGap',1e-4,'verbose',2,'gurobi.LogFile',['Case_',num2str(WTs),'_LDF.log'],'Gurobi.TimeLimit',15000);%,'gurobi.Cuts',0,'usex0',1,
 % [model,recoverymodel] = export(Cons,Obj,ops);
 ops.cplex.exportmodel='abc.lp';
 %% solve the problem
